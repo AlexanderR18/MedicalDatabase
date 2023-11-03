@@ -1,0 +1,65 @@
+/* Apply styles to the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Style the login container */
+  .login-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  /* Style the form elements */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Center the login button */
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Style the welcome message and logout button */
+  .welcome {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style the error message */
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
