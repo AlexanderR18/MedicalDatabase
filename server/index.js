@@ -49,13 +49,17 @@ app.get('/api/get', (req,res) => {
 
 app.post("/api/insert", (req,res) => {
 
-    const username = req.body.username;
-    const password = req.body.password;
+    const sqlInsert = "INSERT INTO clinic (`clinic_name`, `clinic_address`, `clinic_phone`) VALUES (?)";
+    const values = [
+        req.body.username,
+        req.body.password,
+        "1234567890",
+    ]
     
-
-    const sqlInsert = "INSERT INTO users (username, password) VALUES (?,?)";
-    db.query(sqlInsert, [username, password], (err,result) => {
-        //console.log(result);
+        
+    db.query(sqlInsert, [values], (err,result) => {
+        if(err) return res.json(err)
+        return res.json("data inserted")
     });
 
 });

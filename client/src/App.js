@@ -57,7 +57,7 @@ function App() {
         <div>
       {loggedIn ? (
         <div>
-          <p>Welcome, {username}!</p>
+          <p>Welcome, {username}!!</p>
 
 
 
@@ -81,10 +81,10 @@ function App() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button onClick= {LogIn} >Login</button>
+          
 
-          {userList.map((val) =>{
-          return <p>username: {val.username} | password: {val.password}</p>
-        })}
+        
+
           
         </div>
       )}
@@ -105,7 +105,9 @@ export default App;
 
 
 /*
-
+{userList.map((val) =>{
+  return <p>username: {val.username} | password: {val.password}</p>
+})}
 <div className="form">
       <h1>Medical Database</h1>
 
