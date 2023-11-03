@@ -1,14 +1,5 @@
 
-//cd server
-//npm run devStart
-//DELETE FROM users WHERE username='JohnDoe';
-
- //const sqlInsert = "INSERT INTO users (username, password) VALUES ('JohnDoe','password123');"
-    //db.query(sqlInsert, (err,result)=> {
-    //});
-    //res.send("welcome");
-
-
+const fs = require('fs');
 
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -21,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 
-
+/*
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -29,17 +20,21 @@ const db = mysql.createConnection({
     database: "userinfo",
     port: 3306,
 });
+*/
 
 
-/*
 const db = mysql.createConnection({
     host: "medicalclinic16.mysql.database.azure.com",
     user: "medclinic_admin",
     password: "UmaTeam16",
     database: "hospital",
     port: 3306,
+    ssl: {
+        rejectUnauthorized: true,
+        ca: fs.readFileSync("./DigiCertGlobalRootCA.crt.pem")
+    } 
 });
-*/
+
 
 
 app.get('/api/get', (req,res) => {
