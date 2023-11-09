@@ -12,17 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 
-/*
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database: "userinfo",
-    port: 3306,
-});
-*/
-
-
 const db = mysql.createConnection({
     host: "medicalclinic16.mysql.database.azure.com",
     user: "medclinic_admin",
@@ -35,11 +24,13 @@ const db = mysql.createConnection({
     } 
 });
 
-
+app.get("/", (req,res) => {
+    res.json("hello");
+});
 
 app.get('/api/get', (req,res) => {
 
-    const sqlSelect = "SELECT * FROM users";
+    const sqlSelect = "SELECT * FROM administration";
     db.query(sqlSelect, (err,result) => {
         res.send(result);
     });
@@ -49,11 +40,12 @@ app.get('/api/get', (req,res) => {
 
 app.post("/api/insert", (req,res) => {
 
-    const sqlInsert = "INSERT INTO clinic (`clinic_name`, `clinic_address`, `clinic_phone`) VALUES (?)";
+    const sqlInsert = "INSERT INTO administration (`admin_name`, `admin_occupation`, `clinic_ID`, `admin_phone`) VALUES (?)"
     const values = [
         req.body.username,
         req.body.password,
-        "1234567890",
+        req.body.clinic_ID,
+        req.body.phone,
     ]
     
         
@@ -61,14 +53,9 @@ app.post("/api/insert", (req,res) => {
         if(err) return res.json(err)
         return res.json("data inserted")
     });
-
 });
 
-/*
-app.get("/", (req,res) => {
-    res.send("hello");
-});
-*/
+
 
 app.listen(3001, () =>
 {

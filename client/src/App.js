@@ -9,6 +9,8 @@ function App() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [clinic_ID, setclinic_ID] = useState('');
+  const [phone, setPhone] = useState('');
   const [userList, setList] = useState([]);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ function App() {
 
   const sumbitinfo = () => {
     Axios.post("http://localhost:3001/api/insert", 
-    {username:username,password:password}).then(() => {
+    {username:username,password:password,clinic_ID:clinic_ID,phone:phone}).then(() => {
       alert("successful insert");
     });
   };
@@ -41,6 +43,8 @@ function App() {
     setLoggedIn(false);
     setUsername('');
     setPassword('');
+    setclinic_ID('');
+    setPhone('');
   };
 ////
 
@@ -79,6 +83,18 @@ function App() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            type="clinic_ID"
+            placeholder="clinic_ID"
+            value={clinic_ID}
+            onChange={(e) => setclinic_ID(e.target.value)}
+          />
+          <input
+            type="phone"
+            placeholder="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <button onClick= {LogIn} >Login</button>
           
